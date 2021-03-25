@@ -1,6 +1,5 @@
 from statistics import median
 from random import randint
-import sys
 from os import path
 
 
