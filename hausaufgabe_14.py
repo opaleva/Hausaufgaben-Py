@@ -19,7 +19,7 @@ def get_median(num1: list[int], num2: list[int]) -> float:
 
 
 def longest_palindrome(s: str) -> str:
-    # Здесь вполне уместно использовать Manacher's algorithm, но он слишком уж многосложый, поэтому:
+    # Здесь вполне уместно использовать Manacher's algorithm, но он слишком уж многословный, поэтому:
     substring: str = ""
     for x in range(len(s)):
         # Для букв в обратном порядке:
