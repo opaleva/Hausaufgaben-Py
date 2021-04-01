@@ -2,9 +2,9 @@ from random import randint
 
 
 def length_of_longest_substring(string: str) -> int:
-    length = 0
-    first_index = 0
-    substring = {}
+    length: int = 0
+    first_index: int = 0
+    substring: dict[str, int] = {}
     for i in range(0, len(string)):
         if string[i] in substring:
             first_index = max(first_index, substring[string[i]] + 1)
@@ -15,7 +15,7 @@ def length_of_longest_substring(string: str) -> int:
 
 # Алгоритм Кадане с указанием искомой подстроки.
 def max_sub_array(nums: list[int]) -> tuple[int, ...]:
-    length = 0
+    length: int = 0
     first_number = last_number = 0
     current_sum, current_start = 0, 0
     for current_end, x in enumerate(nums):
@@ -39,7 +39,7 @@ def main():
         print(f'Длина наибольшей подстроки без повторов: {length_of_longest_substring(string)} симв.')
 
     for _ in range(5):
-        nums = [randint(-20, 20) for _ in range(10)]
+        nums: list[int] = [randint(-20, 20) for _ in range(10)]
         print(f'{nums} –> Сумма: {max_sub_array(nums)[0]}, '
               f'в интервале nums[{max_sub_array(nums)[1]}] – nums[{max_sub_array(nums)[2] - 1}] включительно.')
 
