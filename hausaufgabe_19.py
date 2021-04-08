@@ -21,7 +21,7 @@ class Counter:
 
 
 def main():
-    c1 = Counter(first=2, last=10)
+    c1 = Counter(int(input("Нижний порог: ")), int(input("Верхний порог: ")))
 
     c1.augmentation()
     print("Текущий:", c1.get_current())
