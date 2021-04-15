@@ -1,6 +1,3 @@
-# --------------------------------------
-# На доработке
-# --------------------------------------
 from abc import ABC, abstractmethod
 
 
@@ -24,12 +21,13 @@ class FirstEater(Character):
         super().__init__(name, weight, weapon)
 
     def overeat(self):
+        i = 0
         while True:
+            i += 1
             self.weight += 2
             if self.weight > 200:
-                print(f'{self.name} лопнул от переедания.')
+                print(f'{self.name} лопнул от переедания, съев {i}{self.weapon.overeat()}')
                 break
-
 
     def search_more(self):
         self.weapon.search_more()
@@ -40,8 +38,13 @@ class SecondEater(Character):
         super().__init__(name, weight, weapon)
 
     def overeat(self):
-
-        self.weapon.overeat()
+        i = 0
+        while True:
+            i += 1
+            self.weight += 1
+            if self.weight > 200:
+                print(f'{self.name} лопнул от переедания, съев {i}{self.weapon.overeat()}')
+                break
 
     def search_more(self):
         self.weapon.search_more()
@@ -65,10 +68,13 @@ class Cake(Bakery):
         super().__init__(pieces)
 
     def overeat(self):
-        ...
+        print('Поглощает торты.')
+        self.pieces -= 1
+        return f' кусков торта.'
 
     def search_more(self):
-        print('123')
+        self.pieces = 100
+        print('Запас тортов пополнен.')
 
 
 class Bun(Bakery):
@@ -76,13 +82,21 @@ class Bun(Bakery):
         super().__init__(pieces)
 
     def overeat(self):
-        ...
+        print('Кушает булочки.')
+        self.pieces -= 1
+        return f' булочек.'
 
     def search_more(self):
-        ...
+        self.pieces = 100
+        print('Запас булочек пополнен.')
 
 
-fg = Cake(130)
-a = FirstEater('gfhfg', 180, fg)
+buns = Bun(100)
+cakes = Cake(100)
+a = FirstEater('Вася', 45, cakes)
+b = SecondEater('Петя', 152, buns)
+
 a.overeat()
 a.search_more()
+b.overeat()
+b.search_more()
