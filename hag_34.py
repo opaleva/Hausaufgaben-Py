@@ -21,6 +21,9 @@ class Librarian:
             if book.title.lower() == title.lower():
                 self.books.remove(book)
                 print(f"Книга {book} удалена.\n")
+            else:
+                print("Книги с таким названием у нас нет.")
+                break
 
     def return_book(self, return_book):
         for book in self.borrowed_books:
@@ -35,6 +38,9 @@ class Librarian:
                 self.borrowed_books.append(book)
                 self.books.remove(book)
                 print(f"Книга {book} взята.\n")
+            else:
+                print("Книги с таким названием у нас нет.")
+                break
 
     def display_books(self):
         for book in self.books:
@@ -83,7 +89,7 @@ def main():
 
     while True:
         question = input("Что делать будем?\n1 — Смотреть все книги\n2 — Взять книгу\n"
-                         "3 — Вернуть книгу\n4 – Добавить книгу\n5 — Удалить книгу\nЧто-либо другое – Выйти")
+                         "3 — Вернуть книгу\n4 – Добавить книгу\n5 — Удалить книгу\nЧто-либо другое – Выйти\n")
         if question == "1":
             catalog.display_books()
         elif question == "2":
